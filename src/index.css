@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Light Mode Background */
+body {
+  @apply bg-gray-100 text-gray-900;
+}
+
+/* Dark Mode Background */
+html.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* Custom Dark Mode Styling */
+html.dark .navbar {
+  @apply bg-gray-800 text-gray-100;
+}
+
+/* Example for Card Component */
+html.dark .card {
+  @apply bg-gray-700 text-gray-200;
+}
+
+/* Example for Button Component */
+html.dark .btn {
+  @apply bg-gray-600 text-gray-100 hover:bg-gray-700;
+}
