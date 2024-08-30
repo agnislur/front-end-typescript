@@ -71,8 +71,8 @@ const HomePage: React.FC = () => {
           </motion.div>
         </div>
 
-        <div id="about" ref={lembangRef} className="mb-16 pt-32 flex flex-row p-4">
-          <div className="flex-1 pr-6">
+        <div id="about" ref={lembangRef} className="mb-16 pt-32 flex flex-col lg:flex-row p-4">
+          <div className="flex-1 mb-6 lg:mb-0 lg:pr-6">
             <div className="relative h-full">
               <img
                 src={photoLembang}
@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-          <div className="flex-1 pl-4 flex flex-col justify-center">
+          <div className="flex-1 lg:pl-4 flex flex-col justify-center">
             <motion.h2
               className="text-2xl font-bold mb-2 dark:text-gray-300"
               initial={{ opacity: 0, y: 20 }}
