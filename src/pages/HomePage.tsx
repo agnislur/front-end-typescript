@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
           />
           <motion.div
             ref={bandungRef}
-            className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-40 text-white p-4"
+            className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-black bg-opacity-40 dark:bg-gray-900 dark:bg-opacity-70 text-white dark:text-gray-300 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: bandungInView ? 1 : 0 }}
             transition={{ duration: 1 }}
@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="flex-1 pl-4 flex flex-col justify-center">
             <motion.h2
-              className="text-2xl font-bold mb-2"
+              className="text-2xl font-bold mb-2 dark:text-gray-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: lembangInView ? 1 : 0, y: lembangInView ? 0 : 20 }}
               transition={{ duration: 1 }}
@@ -91,7 +91,7 @@ const HomePage: React.FC = () => {
               Eksplorasi Lembang
             </motion.h2>
             <motion.p
-              className="text-lg"
+              className="text-lg dark:text-gray-400"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: lembangInView ? 1 : 0, x: lembangInView ? 0 : -20 }}
               transition={{ duration: 1 }}
@@ -101,10 +101,10 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
-        <section id="whyBandung" ref={whyBandungRef} className="mt-16 pt-32 bg-gray-100 py-8">
+        <section id="whyBandung" ref={whyBandungRef} className=" pt-20 bg-gray-100 dark:bg-gray-800 py-8">
           <div className="container mx-auto px-4">
             <motion.h2
-              className="text-3xl font-bold mb-4"
+              className="text-3xl font-bold mb-4 dark:text-gray-300"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: whyBandungInView ? 1 : 0, y: whyBandungInView ? 0 : 20 }}
               transition={{ duration: 1 }}
@@ -112,7 +112,7 @@ const HomePage: React.FC = () => {
               Kenapa Bandung?
             </motion.h2>
             <motion.p
-              className="text-lg"
+              className="text-lg dark:text-gray-400"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: whyBandungInView ? 1 : 0, x: whyBandungInView ? 0 : -20 }}
               transition={{ duration: 1 }}
@@ -123,12 +123,12 @@ const HomePage: React.FC = () => {
         </section>
 
         <section id="testimoni" ref={testimoniRef} className="py-8 px-4 pt-24">
-          <h2 className="text-3xl font-bold mb-4 text-center">Testimoni</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center dark:text-gray-300">Testimoni</h2>
           <Slider {...carouselSettings} className="slick-slider">
             {[photoKotak1, photoKotak2, photoKotak3, photoKotak4, photoKotak5, photoKotak6].map((photo, index) => (
               <div
                 key={index}
-                className="card bg-base-100 w-80 flex-shrink-0 mx-4 space-x-1 p-8"
+                className="card bg-base-100 dark:bg-gray-900 w-80 flex-shrink-0 mx-4 space-x-1 p-8"
               >
                 <figure>
                   <img
@@ -138,8 +138,8 @@ const HomePage: React.FC = () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title font-bold mt-2">Kenapa Bandung?</h2>
-                  <p className='mt-2'>
+                  <h2 className="card-title font-bold mt-2 dark:text-gray-300">Kenapa Bandung?</h2>
+                  <p className='mt-2 dark:text-gray-400'>
                     Bandung adalah tempat yang sempurna untuk pelarian dari kesibukan kota. Dengan banyaknya destinasi wisata alam, kuliner yang menggugah selera, dan suasana yang menyegarkan, Bandung menawarkan pengalaman yang tak terlupakan.
                   </p>
                 </div>

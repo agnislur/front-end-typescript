@@ -2,61 +2,42 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-blue-400">
+    <footer className="bg-white text-black dark:bg-gray-800 dark:text-gray-300">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="https://flowbite.com/" className="flex items-center">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8 me-3"
-                alt="FlowBite Logo"
-              />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
+              <span className="self-center text-2xl font-semibold whitespace-nowrap">
+                Bandung Indah
               </span>
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Resources
-              </h2>
-              <ul className="text-gray-500 dark:text-white font-medium">
+              <h2 className="mb-6 text-sm font-semibold uppercase">Resources</h2>
+              <ul className="font-medium">
                 <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline">
-                    Flowbite
-                  </a>
+                  <a href="https://flowbite.com/" className="hover:underline">Bandung Indah</a>
                 </li>
                 <li>
-                  <a href="https://tailwindcss.com/" className="hover:underline">
-                    Tailwind CSS
-                  </a>
+                  <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Follow us
-              </h2>
-              <ul className="text-gray-500 dark:text-white font-medium">
+              <h2 className="mb-6 text-sm font-semibold uppercase">Follow us</h2>
+              <ul className="font-medium">
                 <li className="mb-4">
-                  <a href="https://github.com/themesberg/flowbite" className="hover:underline">
-                    Github
-                  </a>
+                  <a href="https://github.com/themesberg/flowbite" className="hover:underline">Github</a>
                 </li>
                 <li>
-                  <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">
-                    Discord
-                  </a>
+                  <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Discord</a>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Legal
-              </h2>
-              <ul className="text-gray-500 dark:text-white font-medium">
+              <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
+              <ul className="font-medium">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">Privacy Policy</a>
                 </li>
@@ -67,19 +48,16 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-6 border-gray-200 dark:border-gray-700 lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-white sm:text-center dark:text-white">
+          <span className="text-sm sm:text-center">
             © 2023{' '}
-            <a href="https://flowbite.com/" className="hover:underline">
-              Flowbite™
-            </a>
-            . All Rights Reserved.
+            <a href="https://flowbite.com/" className="hover:underline">Bandung Indah</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <a
               href="#"
-              className="text-white hover:text-gray-900 dark:hover:text-white"
+              className="hover:text-gray-400 dark:hover:text-gray-200"
               aria-label="Facebook page"
             >
               <svg
@@ -99,7 +77,7 @@ const Footer: React.FC = () => {
             </a>
             <a
               href="#"
-              className="text-white hover:text-gray-900 dark:hover:text-white ms-5"
+              className="ms-5 hover:text-gray-400 dark:hover:text-gray-200"
               aria-label="Discord community"
             >
               <svg
@@ -115,7 +93,7 @@ const Footer: React.FC = () => {
             </a>
             <a
               href="#"
-              className="text-white hover:text-gray-900 dark:hover:text-white ms-5"
+              className="ms-5 hover:text-gray-400 dark:hover:text-gray-200"
               aria-label="Twitter page"
             >
               <svg
@@ -127,7 +105,7 @@ const Footer: React.FC = () => {
               >
                 <path
                   fillRule="evenodd"
-                  d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.8 2.822 8.236 8.236 0 0 1-5.087 1.759A8.43 8.43 0 0 1 0 14.08a11.61 11.61 0 0 0 6.294 1.84c7.547 0 11.674-6.287 11.674-11.74 0-.18-.004-.358-.012-.535A8.256 8.256 0 0 0 20 1.892Z"
+                  d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.8 2.822 8.236 8.236 0 0 1-5.087 1.759A8.43 8.43 0 0 1 0 14.08a11.61 11.61 0 0 0 6.29 1.84c7.548 0 11.687-6.078 11.687-11.33l-.01-.515A8.13 8.13 0 0 0 20 1.892Z"
                   clipRule="evenodd"
                 />
               </svg>
