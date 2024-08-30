@@ -32,7 +32,7 @@ export const loginUser = createAsyncThunk(
   async (credentials: { email: string; password: string }) => {
     const response = await axios.post('/api/session/login', credentials);
     localStorage.setItem('access_token', response.data.data.access_token);
-    return response.data; // Sesuaikan jika response berbeda
+    return response.data; 
   }
 );
 

@@ -1,25 +1,27 @@
+// src/components/Navbar.tsx
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../reduxStore/hooks';
 import { logout } from '../reduxStore/slices/userSlice';
-import Login from './Login'; 
-import { Link as ScrollLink } from 'react-scroll'; 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import MaterialUISwitch from './ui'; // Import the MaterialUISwitch component
+import MobileMenu from './MobileMenu'; // Import MobileMenu
+import NavbarLinks from './NavbarLinks';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import MaterialUISwitch from './ui';
+import Login from './Login';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [showLogin, setShowLogin] = useState(false); 
+  const [showLogin, setShowLogin] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
   const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { isLoggedIn } = useAppSelector((state) => state.user);
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/HomePage'); 
+    navigate('/HomePage');
   };
 
   const handleLoginClick = () => {
@@ -34,6 +36,15 @@ const Navbar: React.FC = () => {
     setDarkMode(prevMode => !prevMode);
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(prevOpen => !prevOpen);
+  };
+
+  const handleSectionClick = (section: string) => {
+    setActiveSection(section);
+    setMenuOpen(false); // Close menu after selection
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -42,7 +53,7 @@ const Navbar: React.FC = () => {
         setScrolled(false);
       }
 
-      const sections = ['home', 'about', 'whyBandung', 'testimoni', 'profile'];
+      const sections = ['home', 'about', 'whyBandung', 'testimoni'];
       let currentSection = '';
 
       sections.forEach(section => {
@@ -56,7 +67,7 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -75,66 +86,26 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-xl font-bold">Bandung Indah</div>
           <div className="flex items-center space-x-4">
-            {!isLoggedIn && (
-              <>
-                <ScrollLink
-                  to="home"
-                  smooth={true}
-                  duration={500}
-                  className={`px-3 py-2 rounded ${activeSection === 'home' ? 'text-blue-500' : 'hover:text-blue-500'}`}
-                >
-                  Home
-                </ScrollLink>
-                <ScrollLink
-                  to="about"
-                  smooth={true}
-                  duration={500}
-                  className={`px-3 py-2 rounded ${activeSection === 'about' ? 'text-blue-500' : 'hover:text-blue-500'}`}
-                >
-                  About
-                </ScrollLink>
-                <ScrollLink
-                  to="whyBandung"
-                  smooth={true}
-                  duration={500}
-                  className={`px-3 py-2 rounded ${activeSection === 'whyBandung' ? 'text-blue-500' : 'hover:text-blue-500'}`}
-                >
-                  Kenapa Bandung
-                </ScrollLink>
-                <ScrollLink
-                  to="testimoni"
-                  smooth={true}
-                  duration={500}
-                  className={`px-3 py-2 rounded ${activeSection === 'testimoni' ? 'text-blue-500' : 'hover:text-blue-500'}`}
-                >
-                  Testimoni
-                </ScrollLink>
-              </>
-            )}
-
-            {isLoggedIn && (
-              <div className="flex items-center space-x-4">
-                <Link to="/users" className="px-3 py-2 rounded hover:text-blue-500">Work</Link>
-                <Link to="/errorpage" className="px-3 py-2 rounded hover:text-blue-500">Profile</Link>
-              </div>
-            )}
-
-            {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="px-3 py-2 rounded hover:bg-red-500"
-              >
-                LogOut
-              </button>
-            ) : (
-              <button
-                onClick={handleLoginClick}
-                className="px-3 py-2 rounded hover:bg-white hover:text-black"
-              >
-                Login
-              </button>
-            )}
-
+            <button 
+              className="lg:hidden p-2" 
+              onClick={toggleMenu}
+            >
+              {menuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+            <MobileMenu
+              isLoggedIn={isLoggedIn}
+              handleLogout={handleLogout}
+              handleLoginClick={handleLoginClick}
+              menuOpen={menuOpen}
+              activeSection={activeSection}
+              handleSectionClick={handleSectionClick}
+            />
+            <div className="hidden lg:flex items-center space-x-4">
+              <NavbarLinks
+                activeSection={activeSection}
+                handleSectionClick={handleSectionClick}
+              />
+            </div>
             <MaterialUISwitch
               checked={darkMode}
               onChange={toggleDarkMode}
