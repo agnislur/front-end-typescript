@@ -17,11 +17,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   handleLogout,
   handleLoginClick,
   menuOpen,
-  activeSection, // Tambahkan activeSection
+  activeSection, 
   handleSectionClick, // Tambahkan handleSectionClick
 }) => {
   return (
-    <div className={`fixed inset-0 bg-white dark:bg-gray-800 z-40 lg:relative lg:flex lg:items-center lg:space-x-4 lg:bg-transparent lg:dark:bg-transparent lg:p-0 transition-transform transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0`}>
+    <div className={`fixed top-0 right-0 w-1/4 h-full p-4 bg-white dark:bg-gray-800 z-40 lg:relative lg:flex lg:items-center lg:space-x-4 lg:bg-transparent lg:dark:bg-transparent lg:p-0 transition-transform transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0`}>
       <div className={`lg:hidden flex flex-col items-center justify-center space-y-6 p-4 fixed inset-0 bg-white dark:bg-gray-800 z-50 transition-transform transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {isLoggedIn ? (
           <>

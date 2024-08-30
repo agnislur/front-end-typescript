@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
 
   const handleSectionClick = (section: string) => {
     setActiveSection(section);
-    setMenuOpen(false); // Close menu after selection
+    setMenuOpen(false); 
   };
 
   useEffect(() => {
