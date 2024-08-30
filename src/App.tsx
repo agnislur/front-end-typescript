@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useAppSelector } from './reduxStore/hooks'; // Make sure this import is correct
+import { useAppSelector } from './reduxStore/hooks';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer'; // Import Footer component
+import Footer from './components/Footer'; 
 import LoginPage from './pages/LoginPage';
 import UserList from './pages/UserPage';
 import ErrorPage from './pages/ErrorPage';

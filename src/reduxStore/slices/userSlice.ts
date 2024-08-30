@@ -87,6 +87,7 @@ export const deleteUser = createAsyncThunk(
   }
 );
 
+
 // Thunk untuk update user
 export const updateUser = createAsyncThunk(
   'user/updateUser',
@@ -103,6 +104,7 @@ export const updateUser = createAsyncThunk(
     return response.data.data; // Sesuaikan jika response berbeda
   }
 );
+
 
 const userSlice = createSlice({
   name: 'user',
@@ -165,6 +167,8 @@ const userSlice = createSlice({
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         state.status = 'succeeded';
+
+
         // Update user in the list
         const updatedUser = action.payload;
         state.users = state.users.map(user =>
