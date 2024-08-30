@@ -1,15 +1,15 @@
-// src/components/MobileMenu.tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavbarLinks from './NavbarLinks'; // Import NavbarLinks
+import MaterialUISwitch from './ui'; // Import MaterialUISwitch
 
 interface MobileMenuProps {
   isLoggedIn: boolean;
   handleLogout: () => void;
   handleLoginClick: () => void;
   menuOpen: boolean;
-  activeSection: string; // Tambahkan activeSection
-  handleSectionClick: (section: string) => void; // Tambahkan handleSectionClick
+  activeSection: string;
+  handleSectionClick: (section: string) => void;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
@@ -17,11 +17,25 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   handleLogout,
   handleLoginClick,
   menuOpen,
-  activeSection, 
-  handleSectionClick, // Tambahkan handleSectionClick
+  activeSection,
+  handleSectionClick,
 }) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(prevMode => !prevMode);
+  };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   return (
-    <div className={`fixed top-0 right-0 w-1/4 h-full p-4 bg-white dark:bg-gray-800 z-40 lg:relative lg:flex lg:items-center lg:space-x-4 lg:bg-transparent lg:dark:bg-transparent lg:p-0 transition-transform transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0`}>
+    <div className={`fixed top-0 right-0 w-1/2 h-full p-4 bg-white dark:bg-gray-800 z-40 lg:relative lg:flex lg:items-center lg:space-x-4 lg:bg-transparent lg:dark:bg-transparent lg:p-0 transition-transform transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} lg:translate-x-0`}>
       <div className={`lg:hidden flex flex-col items-center justify-center space-y-6 p-4 fixed inset-0 bg-white dark:bg-gray-800 z-50 transition-transform transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {isLoggedIn ? (
           <>
@@ -43,8 +57,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           </button>
         )}
 
-        {/* Tambahkan NavbarLinks */}
         <NavbarLinks activeSection={activeSection} handleSectionClick={handleSectionClick} />
+        <MaterialUISwitch
+          checked={darkMode}
+          onChange={toggleDarkMode}
+          className=" "
+        />
       </div>
     </div>
   );
